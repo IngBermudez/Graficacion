@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace PickleRick
 {
@@ -27,7 +30,6 @@ namespace PickleRick
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            label1.Text = "X= " + e.X + "Y= " + e.Y;
         }
        
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -38,7 +40,7 @@ namespace PickleRick
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -56,7 +58,7 @@ namespace PickleRick
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            labelx.Text = "X: " + Convert.ToString(x);
+            labelx1.Text = "X: " + Convert.ToString(x);
             labely.Text = "y: " + Convert.ToString(y);
             if (k == 1)
             {
@@ -80,54 +82,196 @@ namespace PickleRick
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
+            
+            //g.FillPie(mySolidBrush, 393, 164, 433, 126,48,15 );
+            //myGraphics.DrawArc(myPen, 0, 0, 140, 70, 0, 120);
+            //LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush(myRectangle,Color.Blue,Color.Green,LinearGradientMode.Horizontal);
+            //myGraphics.FillEllipse(myLinearGradientBrush, myRectangle);
+
+            //g.FillClosedCurve(mySolidBrush, myPointArray);
+
+
+            SolidBrush ColorHuesos = new SolidBrush(Color.Gray);
             Pen pnegro = new Pen(Color.Black, 2);
             Pen PDelg = new Pen(Color.Black, 1);
+            Pen PVerde = new Pen(Color.Green, 2);
+            Graphics g = e.Graphics;
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+
 
 
             #region Espejo
-            e.Graphics.DrawLine(pnegro, 2,34, 185,26);
+            e.Graphics.DrawLine(pnegro, 2, 34, 185, 26);
             e.Graphics.DrawLine(pnegro, 186, 26, 168, 185);
             e.Graphics.DrawLine(pnegro, 168, 185, 125, 189);
             e.Graphics.DrawLine(pnegro, 147, 210, 191, 208);
             e.Graphics.DrawLine(pnegro, 172, 190, 190, 22);
-            e.Graphics.DrawLine(pnegro, 190, 19, 1, 26);
+            e.Graphics.DrawLine(pnegro, 189, 19, 1, 26);
             e.Graphics.DrawLine(pnegro, 130, 192, 172, 190);
             e.Graphics.DrawLine(pnegro, 196, 217, 156, 217);
             e.Graphics.DrawLine(pnegro, 190, 210, 194, 215);
             e.Graphics.DrawLine(pnegro, 190, 208, 210, 4);
-            e.Graphics.DrawLine(pnegro, 195, 214, 214, 12);
+            e.Graphics.DrawLine(pnegro, 195, 214, 214, 10);
             e.Graphics.DrawLine(pnegro, 210, 5, 215, 11);
             e.Graphics.DrawLine(pnegro, 0, 12, 209, 4);
+            g.DrawLine(pnegro, 190, 19, 190, 32);
             #endregion
 
             #region cabeza
+            //Point[] myPointArray ={p1, new Point(402, 138), new Point(407, 130), new Point(434, 126) };
+            //Point[] myPointArray1 ={new Point(0, 0), new Point(60, 20), new Point(40, 50) };
+            //g.DrawClosedCurve(pnegro, myPointArray1);
+
+            //g.DrawPolygon(pnegro, myPointArray);
             e.Graphics.DrawBezier(pnegro, 393, 162, 402,138,407,130,434,126);
             e.Graphics.DrawBezier(pnegro, 434,126, 454, 131, 466, 136, 470, 158);
             e.Graphics.DrawBezier(pnegro, 393, 161, 392, 183, 392, 205, 393, 221);
-            e.Graphics.DrawBezier(pnegro, 470, 159, 469, 174, 470, 194, 470, 211);
+            e.Graphics.DrawBezier(pnegro, 469, 158, 469, 174, 470, 194, 470, 211);
             e.Graphics.DrawBezier(pnegro, 469, 178,477 , 180, 478, 192, 471, 204);
             #endregion
 
             #region BrazoDerecho
             //Hombro
-            e.Graphics.DrawLine(pnegro, 483, 210, 470, 211);
+            e.Graphics.DrawLine(pnegro, 486, 210, 470, 211);
             e.Graphics.DrawLine(pnegro, 189, 24, 189, 30);
-            e.Graphics.DrawLine(pnegro, 474, 248, 494, 242);
+            e.Graphics.DrawLine(pnegro, 474, 258, 497, 241);
             e.Graphics.DrawBezier(pnegro, 485, 210, 497, 216, 499, 230, 496,242);
 
             //Brazo
             e.Graphics.DrawLine(pnegro, 486, 247, 512, 278);
-            e.Graphics.DrawLine(pnegro, 476, 260, 506, 293);
-            e.Graphics.DrawBezier(pnegro, 506, 287, 506, 293, 513,299,518, 297);
-            e.Graphics.DrawLine(pnegro, 506, 287, 522,259);
+            e.Graphics.DrawLine(pnegro, 474, 258, 506, 293);
+            e.Graphics.DrawBezier(pnegro, 506, 287, 498, 298, 523, 299,528, 291);
+            e.Graphics.DrawLine(pnegro, 506, 287, 523,257);
             e.Graphics.DrawBezier(pnegro, 519, 296, 521, 288, 526, 277, 532, 264);
+            e.Graphics.DrawBezier(pnegro, 528, 292, 527, 285, 528, 276, 533, 262);
+            #endregion
+
+            #region Mano
+            //new Point p2 =new Point ()
+            e.Graphics.DrawBezier(pnegro, 519, 248, 522,261, 533, 264, 538, 262);
+            e.Graphics.DrawLine(pnegro, 519, 248, 532, 217);
+            e.Graphics.DrawLine(pnegro, 539, 262, 558, 251);
+            e.Graphics.DrawLine(pnegro, 539, 262, 548, 229);
+            e.Graphics.DrawBezier(pnegro, 534, 208,528, 218, 534, 226, 546, 229);
+            e.Graphics.DrawLine(pnegro, 547, 228, 565, 218);
+            e.Graphics.DrawLine(pnegro, 565, 218, 559, 212);
+            e.Graphics.DrawLine(pnegro, 556, 252, 559, 242);
+            e.Graphics.DrawBezier(pnegro, 559, 213, 554, 223, 534, 214, 531, 198);
+            g.DrawRectangle(pnegro, 555, 228, 10, 15);
+            e.Graphics.DrawLine(pnegro, 563, 218, 562, 228);
+            e.Graphics.DrawLine(pnegro, 574, 205, 565, 228);
+            e.Graphics.DrawLine(pnegro, 565, 242, 572, 242);
+            e.Graphics.DrawLine(pnegro, 574, 206, 606, 193);
+            e.Graphics.DrawLine(pnegro, 606, 193, 602, 204);
+            e.Graphics.DrawLine(pnegro, 606, 193, 588, 174);
+            e.Graphics.DrawLine(pnegro, 574, 207, 568, 199);
+            e.Graphics.DrawLine(pnegro, 547, 179, 563, 172);
+            e.Graphics.DrawLine(pnegro, 559, 215, 571, 194);
+            g.DrawBezier(pnegro, 531, 199, 534, 192, 535, 189, 534, 184);
+            g.DrawBezier(pnegro, 571, 242, 570, 230, 587, 206, 602, 203);
+            g.DrawBezier(pnegro, 571, 242, 587, 244, 610, 214, 602, 204);
 
             #endregion
 
             #region Cuerpo
-            e.Graphics.DrawLine(PDelg, 470, 212, 473, 231);
-            e.Graphics.DrawLine(pnegro, 471, 242, 475, 270);
+            g.DrawLine(PDelg, 470, 212, 473, 231);
+            g.DrawLine(pnegro, 471, 242, 475, 270);
+            g.DrawLine(pnegro, 476, 278, 476, 289);
+            g.DrawLine(PDelg, 477, 294, 478, 308);
+            g.DrawLine(pnegro, 394, 254, 394, 268);
+            g.DrawLine(pnegro, 394, 278, 392, 290);
+            g.DrawLine(pnegro, 392, 298, 392, 310);
+            Point[] Cuerpo =
+                {
+                new Point(393, 222),
+                new Point(393, 165),
+                new Point(406, 138),
+                new Point(434, 126),
+                new Point(460,137),
+                new Point(470, 155),
+                new Point(470, 182),
+                new Point(470, 202),
+                new Point(473, 230),
+                new Point(474, 270),
+                new Point(478, 322),
+                new Point(478, 334),
+                new Point(469, 378),
+                new Point(460, 400),
+                                new Point(450, 409),
+                new Point(446, 410),
+                new Point(419, 405),
+                new Point(401, 390),
+                new Point(391, 381),
+                new Point(391, 346),
+                new Point(394, 221)};
 
+            //Huesos
+            g.DrawBezier(PDelg, 464, 245, 474, 239, 478, 233, 474, 228);
+            g.DrawBezier(PDelg, 464, 244, 470, 237, 473, 230, 473, 230);
+            g.DrawBezier(PDelg, 466, 281, 475, 274, 476, 270, 476, 270);
+            g.DrawBezier(PDelg, 466, 281, 477, 278, 480, 273, 477, 266);
+            g.DrawBezier(PDelg, 466, 296, 466, 296, 478, 288, 478, 288);
+            g.DrawBezier(PDelg, 466, 296, 477, 294, 481, 290, 477, 286);
+            g.DrawBezier(PDelg, 466, 314, 474, 310, 478, 307, 478, 307);
+            g.DrawBezier(PDelg, 466, 314, 478, 313, 482, 310, 477, 305);
+            Point[] HuesoIzquierda1 =
+                {
+                new Point(393, 267),
+                new Point(407,280),
+                new Point(437, 286),
+                new Point(412, 288),
+                new Point(388,272),
+                new Point(393, 262) };
+            Point[] HuesoIzquierda2 =
+                {
+                new Point(392, 287),
+                new Point(397, 297), 
+                new Point(409, 303),
+                new Point(436, 302),
+                new Point(407, 308),
+                new Point(387, 290),
+                new Point(393, 280) };
+
+            Point[] HuesoIzquierda3 =
+                {
+                new Point(391, 310),
+                new Point(405, 320),
+                new Point(434, 319),
+                new Point(411, 326),
+                new Point(390, 318),
+                new Point(388, 311),
+                new Point(391, 302)};
+            #endregion
+
+
+            #region mueble
+            e.Graphics.DrawLine(pnegro, 0, 146, 77, 144);
+            e.Graphics.DrawLine(pnegro, 1, 150, 75, 148);
+            e.Graphics.DrawLine(pnegro, 77, 144, 75, 163);
+            e.Graphics.DrawLine(pnegro, 74, 163, 2, 165);
+            e.Graphics.DrawLine(pnegro, 76, 144, 199, 258);
+            e.Graphics.DrawLine(pnegro, 78, 150, 198, 259);
+            e.Graphics.DrawLine(pnegro, 77, 164, 197,268);
+            e.Graphics.DrawLine(pnegro, 71, 166, 190, 271);
+            e.Graphics.DrawLine(pnegro, 197, 269, 190, 270);
+            e.Graphics.DrawLine(pnegro, 196, 259, 196, 266);
+            e.Graphics.DrawLine(pnegro, 70, 163, 46, 418);
+            e.Graphics.DrawLine(pnegro, 45, 163, 17, 418);
+            e.Graphics.DrawLine(pnegro, 54, 419, 1, 418);
+            e.Graphics.DrawLine(pnegro, 54, 418, 48, 473);
+
+
+            #endregion
+
+            #region Metodos
+            g.DrawClosedCurve(PVerde, Cuerpo);
+            //Huesos//
+
+            g.DrawClosedCurve(PDelg, HuesoIzquierda1);
+            g.FillClosedCurve(ColorHuesos, HuesoIzquierda1);
+            g.DrawClosedCurve(PDelg, HuesoIzquierda2);
+            g.DrawClosedCurve(PDelg, HuesoIzquierda3);
 
             #endregion
         }
@@ -145,6 +289,41 @@ namespace PickleRick
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripButton1_Click_2(object sender, EventArgs e)
+        {
+            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Graphics g = Graphics.FromImage(bmp);
+            Rectangle rect = pictureBox1.RectangleToScreen(pictureBox1.ClientRectangle);
+            g.CopyFromScreen(rect.Location, Point.Empty, pictureBox1.Size);
+            g.Dispose();
+            SaveFileDialog s = new SaveFileDialog();
+            s.Filter = "Png files|*.png|jpeg files|*jpg|bitmaps|*.bmp";
+            if (s.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (File.Exists(s.FileName))
+                {
+                    File.Delete(s.FileName);
+                }
+                if (s.FileName.Contains(".jpg"))
+                {
+                    bmp.Save(s.FileName, ImageFormat.Jpeg);
+                }
+                else if (s.FileName.Contains(".png"))
+                {
+                    bmp.Save(s.FileName, ImageFormat.Png);
+                }
+                else if (s.FileName.Contains(".bmp"))
+                {
+                    bmp.Save(s.FileName, ImageFormat.Bmp);
+                }
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -172,3 +351,4 @@ namespace PickleRick
         }
     }
 }
+
