@@ -286,7 +286,7 @@ namespace PickleRick
             #endregion
 
             #region PiernaIzquierda
-            Point[] MusloIzquierdo =
+            Point[] PiernaSuperiorIzquierdo =
                 {
                 new Point(410, 399),
                 new Point(406, 387),
@@ -303,12 +303,12 @@ namespace PickleRick
                 new Point(406, 433),
                 new Point(409, 398)};
 
-            Point[] HuesoMulsoIzquierdo1 =
+            Point[] HuesoPiernaIzquierdo1 =
                 {
                 new Point(413, 395),
                 new Point(390, 402)};
 
-            Point[] HuesoMusloIzquierdo2 =
+            Point[] HuesoPiernaIzquierdo2 =
                 {
                 new Point(397, 398),
                 new Point(394, 395),
@@ -330,6 +330,153 @@ namespace PickleRick
                 new Point(394, 473),
                 new Point(393, 467)};
 
+            Point[] RodillaIzquierda2 =
+                {
+                new Point(393, 472),
+                new Point(391, 467),
+                new Point(388, 460),
+                new Point(383, 465),
+                new Point(386, 474),
+                new Point(393, 471)};
+
+            Point[] RodillaIzquierda3 =
+                {
+                new Point(385, 472),
+                new Point(373, 467),
+                new Point(365, 459),
+                new Point(355, 446),
+                new Point(370, 441),
+                new Point(375, 446),
+                new Point(383, 455),
+                new Point(390, 460)};
+            Point[] RodillaIzquierda4 =
+                {
+                new Point(356, 451),
+                new Point(354, 451),
+                new Point(357, 456),
+                new Point(366, 466),
+                new Point(378, 474),
+                new Point(386, 474)};
+            Point[] PiernaInferiorIzquierda1 =
+                {
+                new Point(355, 455),
+                new Point(354, 460),
+                new Point(352, 474),
+                new Point(353, 484),
+                new Point(355, 494),
+                new Point(358, 502),
+                new Point(360, 510),
+                new Point(356, 520),
+                new Point(359, 520),
+                new Point(358, 528),
+                new Point(362, 525),
+                new Point(364, 527),
+                new Point(365, 523),
+                new Point(368, 525),
+                new Point(366, 515),
+                new Point(366, 496),
+                new Point(367, 473)};
+            Point[] PiernaInferiorIzquierda2 =
+                {
+                new Point(356, 455),
+                new Point(356, 461),
+                new Point(359, 467),
+                new Point(365, 480),
+                new Point(364, 490),
+                new Point(363, 506),
+                new Point(366, 514),
+                new Point(366, 501),
+                new Point(367, 492),
+                new Point(372, 473),
+                new Point(363, 464)};
+
+            #endregion
+
+            #region PiernaDerecha
+            Point[] PiernaSuperiorDerecha1 =
+               {
+                new Point(473, 386),
+                new Point(488, 402),
+                new Point(487, 404),
+                new Point(491, 409),
+                new Point(495, 418),
+                new Point(486, 406),
+                new Point(482, 403),
+                new Point(475, 395),
+                new Point(475, 398),
+                new Point(478, 408),
+                new Point(480, 422),
+                new Point(480, 442),
+                new Point(470, 429),
+                new Point(462, 422),
+                new Point(454, 412),
+                new Point(461, 404),
+                new Point(467, 398)};
+
+            Point[] PiernaSuperiorDerecha2 =
+                {
+                new Point(474, 393),
+                new Point(485, 404),
+                new Point(490, 410),
+                new Point(494, 421),
+                new Point(494, 429),
+                new Point(500, 441),
+                new Point(498, 446),
+                new Point(494, 445),
+                new Point(490, 450),
+                new Point(485, 450),
+                new Point(483, 444),
+                new Point(458, 409)};
+
+            Point[] PiernaSuperiorDerecha3 =
+                {
+                new Point(487, 452),
+                new Point(480, 447),
+                new Point(478, 445),
+                new Point(473, 441),
+                new Point(466, 437),
+                new Point(458, 426),
+                new Point(449, 419),
+                new Point(445, 419),
+                new Point(444, 415),
+                new Point(454, 410),
+                new Point(464, 402)};
+
+            Point[] PiernaInferiorDerecha1 =
+                {
+                new Point(442, 420),
+                new Point(448, 419),
+                new Point(452, 422),
+                new Point(456, 426),
+                new Point(457, 436),
+                new Point(463, 460),
+                new Point(451, 429),
+                new Point(447, 426),
+                new Point(442, 424),
+                new Point(442, 420)};
+
+            Point[] PiernaInferiorDerecha2 =
+                {
+                new Point(444, 425),
+                new Point(461, 478),
+                new Point(467, 476),
+                new Point(453, 427)};
+
+
+            #endregion
+            #region PieIzquierdo
+            Point[] PieIzquierdo =
+                {
+                new Point(397, 398),
+                new Point(394, 395),
+                new Point(391, 398),
+                new Point(393, 399),
+                new Point(394, 402),
+                new Point(392, 403),
+                new Point(389, 458),
+                new Point(394, 459),
+                new Point(397, 402),
+                new Point(398, 398)};
             #endregion
 
             #region Cuerpo
@@ -496,10 +643,26 @@ namespace PickleRick
             g.DrawCurve(PHuesoEse, MadreEsa1);
 
             //Piernas//
-            g.DrawClosedCurve(pnegro, MusloIzquierdo);
-            g.DrawLines(PGrue, HuesoMulsoIzquierdo1);
-            g.DrawClosedCurve(pnegro, HuesoMusloIzquierdo2);
+            g.DrawClosedCurve(pnegro, PiernaSuperiorIzquierdo);
+            g.DrawLines(PGrue, HuesoPiernaIzquierdo1);
+            g.DrawClosedCurve(pnegro, HuesoPiernaIzquierdo2);
             g.DrawClosedCurve(PDelg, RodillaIzquierda1);
+            g.DrawClosedCurve(pnegro, RodillaIzquierda4);
+            g.DrawClosedCurve(pnegro, RodillaIzquierda3);
+            g.DrawClosedCurve(pnegro, RodillaIzquierda2);
+            g.DrawClosedCurve(pnegro, PiernaInferiorIzquierda1);
+            g.FillClosedCurve(ColorNegro, PiernaInferiorIzquierda1);
+            g.DrawClosedCurve(pnegro, PiernaInferiorIzquierda2);
+            g.FillClosedCurve(ColorHuesos, PiernaInferiorIzquierda2);
+
+            g.DrawClosedCurve(pnegro, PiernaSuperiorDerecha1);
+            g.DrawClosedCurve(pnegro, PiernaSuperiorDerecha2);
+
+            g.DrawClosedCurve(pnegro, PiernaSuperiorDerecha3);
+            g.DrawClosedCurve(pnegro, PiernaInferiorDerecha2);
+            g.DrawClosedCurve(pnegro, PiernaInferiorDerecha1);
+            g.FillClosedCurve(ColorHuesos, PiernaInferiorDerecha1);
+
             #endregion
         }
 
