@@ -79,6 +79,7 @@
             this.statusStrip1.Size = new System.Drawing.Size(1131, 26);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.Visible = false;
             // 
             // labelx1
             // 
